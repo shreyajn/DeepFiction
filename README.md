@@ -1,6 +1,6 @@
 # Deep Fiction : Every Image has a story to tell.
 
-![alt text](https://github.com/shreyajn/DeepFiction/blob/master/2.png =100x200)
+![alt text](https://github.com/shreyajn/DeepFiction/blob/master/2.png)
 
 We were a few people at the beach, and it felt so beautiful that I could barely catch my breath as the sun slipped through the sky. She had no intention of falling in love with him, but she wasn't going to be able to walk away from the beach after the ceremony. The beach was beautiful, the sun on the horizon, and the memory of the ocean passed out on the beach. She had no idea what to do next. It was such a strange feeling, as if Alex and his friend had come up on the beach. Her body language betrayed her. No, he seemed to want people at the beach in record time.
 
