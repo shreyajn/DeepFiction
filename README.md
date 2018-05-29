@@ -1,20 +1,26 @@
 # Deep Fiction : Every Image has a story to tell.
+## Introduction
+Stories are a fundamental human tool that we use to communicate thought. Creating a story about a image is a difficult task that many humans also struggle with. New deep learning techniques are enabling us to generate stories based on the content of images. The work aims to not just generate story but also specific to a genre. It will first generate descriptions that describe the salient regions of the image and then use these captions to not only capture the thought of the visual data but at the same time transform into a genre specific story.
+
+First, we combine the work done by Kiros in papers [1],[2] to generate story. The work embedded image and sentences in the same multimodal space with the use of LSTM. A language model that focuses on structure and content is used to generate captions. The recommended setting of the project[12] was to retrieve hundred nearest captions to condition on and generate stories from them. These are also ranked using the pair wise loss minimization. This took many captions half of which were quite unrelated to the image and the impact could be seen in the generated story. To get over this flaw, we have improved the quality of captions that are used as input. We use Karpathy’s research[3] to generate one caption for an image and using this caption. This embedded object regions using CNN and words enriched by context in the same multimodal space. A RNN language model was used to generate captions. If the caption was used alone then because of very less content the story was very repetitive and not at all meaningful. When used along with 99 captions would not matter as the noise would still be there. It was seen using a total of twenty captions, was producing good results. So we used one of this caption and rest from the baseline model ranking the captions in the this order, we could see that the stories weren't perfect but it was also visible that they would do better with  more quality captions.
+
+To make better stories that incorporated more details and weren’t so repetitive, we must capture more details in the captions. This led us to use architecture given in [4] to generate captions for regions of the image but also a score was associated with them that helped us rank them for generation of story. After multiple runs, we see that ten captions from dense cap are quite helpful in correcting grammar and capturing some of the details. On multiple runs, a total of 20 captions were used, 1 good caption, 10 details and the rest from Baseline Model (in this ranking) and that produced the best results. \
 Input has all the trained models. This folder is available on google drive (signin through Lion Mail)
 https://drive.google.com/open?id=1jqopTG1DRwWIo2ffJVh7XbKDuc7S5_zk
 
 ### Baseline Model
-First put paths to all the models romance dictionary, romance style, caption style in the right place in config.py 
-Now use generate_stories.py to run a folder of images and k and bw can be adjusted, where k is the number of captions to condition on and bw is the beam width.
-Recommended setting is k = 100, bw = 50 (for base line model)
-In this file generate is being imported this file has only the baseline model. If we want to run for a single file we can also use the following steps - 
-We have made improvements on this model by improving captioning using the following two models. They can be trained as follows – 
-import generate 
-z = generate.load_all() 
-generate.story(z, './images/ex1.jpg', k=100, bw=50)
-Steps to train your own model can be followed on https://github.com/ryankiros/skip-thoughts/tree/master/decoding. 
-Explained in a lot of detail.
-Model 2 - Good Caption 
-More details - https://github.com/karpathy/neuraltalk2
+First put paths to all the models romance dictionary, romance style, caption style in the right place in config.py \
+Now use generate_stories.py to run a folder of images and k and bw can be adjusted, where k is the number of captions to condition on and bw is the beam width. \
+Recommended setting is k = 100, bw = 50 (for base line model) \
+In this file generate is being imported this file has only the baseline model. If we want to run for a single file we can also use the following steps - \
+We have made improvements on this model by improving captioning using the following two models. They can be trained as follows – \
+import generate \
+z = generate.load_all() \
+generate.story(z, './images/ex1.jpg', k=100, bw=50) \
+Steps to train your own model can be followed on https://github.com/ryankiros/skip-thoughts/tree/master/decoding. \
+Explained in a lot of detail. \
+### Model 2 - Good Caption 
+More details - https://github.com/karpathy/neuraltalk2 \
 The model was used to improve input before stories were generated. It has been further described in detail in the reports.
 Step 1 : MS COCO is downloaded using coco python API 
 Step 2 : The dataset is preprocessed so that it can be trained on 
