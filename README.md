@@ -28,7 +28,7 @@ Step 1 : First put paths to all the models romance dictionary, romance style, ca
 Step 2 : Now use generate_stories.py to run a folder of images and k and bw can be adjusted, where k is the number of captions to condition on and bw is the beam width. Recommended setting is k = 100, bw = 50 (for base line model) \
 In this file generate is being imported this file has only the baseline model. If we want to run for a single file we can also use the following steps - \
 We have made improvements on this model by improving captioning using the following two models. They can be trained as follows – \
-'''import generate'''
+> import generate \
 z = generate.load_all() 
 generate.story(z, './images/ex1.jpg', k=100, bw=50) 
 
